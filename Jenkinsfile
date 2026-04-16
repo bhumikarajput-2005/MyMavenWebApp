@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/bhumikarajput-2005/MyMavenWebApp'
+                git branch: 'main', url: 'https://github.com/bhumikarajput-2005/MyMavenWebApp.git'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'mvn clean package'
+                sh 'cp target/*.war /opt/tomcat/webapps/'
             }
         }    
     }
